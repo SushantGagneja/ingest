@@ -1,0 +1,156 @@
+{
+  "landing": {
+    "path": "/",
+    "role": null,
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "login": {
+    "path": "/login",
+    "role": null,
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_home": {
+    "path": "/apply",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_application": {
+    "path": "/applications/a1b2c3d4-0002",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "review_application": {
+    "path": "/applications/a1b2c3d4-0002",
+    "role": "institute_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_awards": {
+    "path": "/apply/awards",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_help": {
+    "path": "/help",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "queue": {
+    "path": "/queue",
+    "role": "institute_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "risk": {
+    "path": "/risk",
+    "role": "scrutiny_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "scholars": {
+    "path": "/scholars",
+    "role": "mission_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "requests": {
+    "path": "/requests",
+    "role": "mission_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "merit": {
+    "path": "/merit",
+    "role": "committee_member",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "merit_run": {
+    "path": "/merit/runs/run-1",
+    "role": "committee_member",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "finance": {
+    "path": "/finance",
+    "role": "finance_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_users": {
+    "path": "/admin/users",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_institutions": {
+    "path": "/admin/institutions",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_cycles": {
+    "path": "/admin/cycles",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_config": {
+    "path": "/admin/cycles/c-nfst-26",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "dashboards": {
+    "path": "/dashboards",
+    "role": "leadership",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "grievances": {
+    "path": "/grievances",
+    "role": "scrutiny_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "notifications": {
+    "path": "/notifications",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "profile": {
+    "path": "/profile",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  }
+}

@@ -108,8 +108,8 @@ export default function Profile() {
       <PageHeader title="Profile" description={me.email} />
       <div className="grid gap-6">
         {me.role !== "applicant" && (
-          <Card>
-            <CardHeader>
+          <Card className="shadow-sm">
+            <CardHeader className="py-4 border-b bg-card/50">
               <CardTitle>Access</CardTitle>
               <CardDescription>Set by the scheme administrator.</CardDescription>
             </CardHeader>
@@ -124,8 +124,8 @@ export default function Profile() {
             </CardContent>
           </Card>
         )}
-        <Card>
-          <CardHeader>
+        <Card className="shadow-sm">
+          <CardHeader className="py-4 border-b bg-card/50">
             <CardTitle>Your details</CardTitle>
           </CardHeader>
           <CardContent>

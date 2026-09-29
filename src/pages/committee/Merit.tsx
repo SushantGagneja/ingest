@@ -98,7 +98,7 @@ export default function Merit() {
   return (
     <>
       <PageHeader title="Merit & selection" description="Rank the eligible pool, compare what-if runs, and approve one run per cycle." />
-      <Card className="mb-6">
+      <Card className="mb-6 shadow-sm">
         <CardContent className="flex flex-wrap items-end gap-3">
           <Field id="cycle" label="Cycle" className="min-w-60">
             <Select value={cycleId} onValueChange={(v) => { setCycleId(v); setPicked([]) }}>
@@ -129,9 +129,9 @@ export default function Merit() {
       </Card>
 
       {cycleId && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Runs</CardTitle>
+        <Card className="shadow-sm">
+          <CardHeader className="py-4 border-b bg-card/50">
+            <CardTitle className="text-base font-semibold">Runs</CardTitle>
           </CardHeader>
           <CardContent>
             <Query q={runs}>

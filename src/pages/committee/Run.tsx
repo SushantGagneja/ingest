@@ -184,8 +184,8 @@ function CountTable({ title, data }: { title: string; data: Record<string, numbe
 function DiffCard({ a, b }: { a: string; b: string }) {
   const diff = useQuery({ queryKey: ["merit-diff", a, b], queryFn: () => api<Diff>(`/merit-runs/${a}/diff/${b}`) })
   return (
-    <Card className="mb-6">
-      <CardHeader>
+    <Card className="mb-6 shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>
           Compared with run <Link className="underline underline-offset-4" to={`/merit/runs/${b}`}>{shortId(b)}</Link>
         </CardTitle>
@@ -279,25 +279,25 @@ export default function Run() {
             {diffWith && <DiffCard a={id} b={diffWith} />}
 
             <div className="grid gap-6 lg:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Seat fill</CardTitle>
+              <Card className="shadow-sm">
+                <CardHeader className="py-4 border-b bg-card/50">
+                  <CardTitle className="text-base font-semibold">Seat fill</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <FillTable fill={r.result.fill} />
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Reproducibility</CardTitle>
+              <Card className="shadow-sm">
+                <CardHeader className="py-4 border-b bg-card/50">
+                  <CardTitle className="text-base font-semibold">Reproducibility</CardTitle>
                   <CardDescription>Same inputs and settings always give the same hashes.</CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-4">
                   <Facts
                     items={[
-                      ["Input hash", <span className="font-mono text-xs">{r.input_hash}</span>],
-                      ["Output hash", <span className="font-mono text-xs">{r.output_hash}</span>],
-                      ["Settings", official ? "Published config" : <span className="font-mono text-xs">{JSON.stringify(r.params)}</span>],
+                      ["Input hash", <span key="input-hash" className="font-mono text-xs">{r.input_hash}</span>],
+                      ["Output hash", <span key="output-hash" className="font-mono text-xs">{r.output_hash}</span>],
+                      ["Settings", official ? "Published config" : <span key="settings" className="font-mono text-xs">{JSON.stringify(r.params)}</span>],
                     ]}
                   />
                   <div>
@@ -310,17 +310,17 @@ export default function Run() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Selected ({fmtNum(r.result.selected.length)})</CardTitle>
+              <Card className="shadow-sm">
+                <CardHeader className="py-4 border-b bg-card/50">
+                  <CardTitle className="text-base font-semibold">Selected ({fmtNum(r.result.selected.length)})</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <SelectedTable selected={r.result.selected} />
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Trace an applicant</CardTitle>
+              <Card className="shadow-sm">
+                <CardHeader className="py-4 border-b bg-card/50">
+                  <CardTitle className="text-base font-semibold">Trace an applicant</CardTitle>
                   <CardDescription>Every category the applicant was considered for, and the cut-off there.</CardDescription>
                 </CardHeader>
                 <CardContent>

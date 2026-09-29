@@ -46,8 +46,8 @@ export default function Home() {
                 const c = cycleOf(a.cycle_id)
                 return (
                   <li key={a.id}>
-                    <Card>
-                      <CardHeader>
+                    <Card className="shadow-sm">
+                      <CardHeader className="py-4 border-b bg-card/50">
                         <CardTitle>{c ? `${c.scheme_code} ${c.cycle}` : "Application"}</CardTitle>
                         <CardDescription>{c && SCHEME_NAME[c.scheme_code]} · #{shortId(a.id)}</CardDescription>
                       </CardHeader>
@@ -78,8 +78,8 @@ export default function Home() {
             <ul className="grid gap-3 sm:grid-cols-2">
               {open.map((c) => (
                 <li key={c.id}>
-                  <Card>
-                    <CardHeader>
+                  <Card className="shadow-sm">
+                    <CardHeader className="py-4 border-b bg-card/50">
                       <CardTitle>{SCHEME_NAME[c.scheme_code] ?? c.scheme_code}</CardTitle>
                       <CardDescription>
                         {c.scheme_code} {c.cycle} · closes {fmtDate(c.closes_at)}

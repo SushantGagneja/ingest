@@ -45,7 +45,7 @@ export default function Queue() {
           </Field>
         }
       />
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {(rows) => {

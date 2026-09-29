@@ -40,8 +40,8 @@ function AwardSection({ award }: { award: Award }) {
   const payments = useQuery({ queryKey: ["payments", award.id], queryFn: () => api<Payment[]>(`/payments?award_id=${award.id}`) })
   return (
     <section className="grid gap-6 lg:grid-cols-2" aria-label={`Award ${award.award_no}`}>
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>{award.award_no}</CardTitle>
           <CardDescription>
             {award.scheme_code} {award.cycle}
@@ -61,8 +61,8 @@ function AwardSection({ award }: { award: Award }) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>New request</CardTitle>
         </CardHeader>
         <CardContent>
@@ -70,8 +70,8 @@ function AwardSection({ award }: { award: Award }) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>Requests</CardTitle>
         </CardHeader>
         <CardContent>
@@ -98,8 +98,8 @@ function AwardSection({ award }: { award: Award }) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>Payments</CardTitle>
         </CardHeader>
         <CardContent>

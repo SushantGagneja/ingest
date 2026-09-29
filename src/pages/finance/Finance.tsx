@@ -25,8 +25,8 @@ function Batches() {
   const sync = useAction(() => api(`/payments/sync`, { body: {} }), { ...inv, success: (r) => `Synced ${r.synced} payments` })
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Quarterly batches</CardTitle>
         <CardDescription>Generate covers active awards with an approved continuation for the quarter. The batch ID is the period.</CardDescription>
       </CardHeader>
@@ -129,8 +129,8 @@ function Arrears() {
     invalidate: [["payments"]],
   })
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Arrears after a rate revision</CardTitle>
         <CardDescription>
           Add the new rate table first (Cycles & rules). This recomputes every paid quarter on or after the date and creates an arrear
@@ -172,8 +172,8 @@ function ForecastTab() {
   const [args, setArgs] = useState<string>()
   const fc = useQuery({ queryKey: ["forecast", args], queryFn: () => api<Forecast>(`/finance/forecast?${args}`), enabled: !!args })
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Budget forecast</CardTitle>
         <CardDescription>Active awards for the rest of the FY at current rates, plus fresh intake at the month-1 stipend.</CardDescription>
       </CardHeader>

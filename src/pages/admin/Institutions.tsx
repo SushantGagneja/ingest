@@ -28,7 +28,7 @@ export default function Institutions() {
         description="AISHE-verified status feeds the institution eligibility rule; premier status drives NFST premier slots."
         actions={<Button onClick={() => setEditing("new")}>Add institution</Button>}
       />
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {(rows) =>

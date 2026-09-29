@@ -1,0 +1,190 @@
+{
+  "landing": {
+    "path": "/",
+    "role": null,
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "login": {
+    "path": "/login",
+    "role": null,
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_home": {
+    "path": "/apply",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_application": {
+    "path": "/applications/a1b2c3d4-0002",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts"
+    ],
+    "failedRequests": []
+  },
+  "review_application": {
+    "path": "/applications/a1b2c3d4-0002",
+    "role": "institute_officer",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /risk-flags?application_id=a1b2c3d4-0002, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?application_id=a1b2c3d4-0002, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?application_id=a1b2c3d4-0002, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?application_id=a1b2c3d4-0002, returning []. Add one in src/lib/mock.ts"
+    ],
+    "failedRequests": []
+  },
+  "apply_awards": {
+    "path": "/apply/awards",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "apply_help": {
+    "path": "/help",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "queue": {
+    "path": "/queue",
+    "role": "institute_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "risk": {
+    "path": "/risk",
+    "role": "scrutiny_officer",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /risk-flags?status=open&limit=200, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?status=open&limit=200, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?status=open&limit=200, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /risk-flags?status=open&limit=200, returning []. Add one in src/lib/mock.ts"
+    ],
+    "failedRequests": []
+  },
+  "scholars": {
+    "path": "/scholars",
+    "role": "mission_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "requests": {
+    "path": "/requests",
+    "role": "mission_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "merit": {
+    "path": "/merit",
+    "role": "committee_member",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "merit_run": {
+    "path": "/merit/runs/run-1",
+    "role": "committee_member",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /merit-runs/run-1, returning []. Add one in src/lib/mock.ts",
+      "%s\n\n%s\n An error occurred in the <Query> component. Consider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.",
+      "[mock] no fixture for GET /merit-runs/run-1, returning []. Add one in src/lib/mock.ts",
+      "%s\n\n%s\n An error occurred in the <Query> component. Consider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.",
+      "[mock] no fixture for GET /merit-runs/run-1, returning []. Add one in src/lib/mock.ts",
+      "%s\n\n%s\n An error occurred in the <Query> component. Consider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.",
+      "[mock] no fixture for GET /merit-runs/run-1, returning []. Add one in src/lib/mock.ts",
+      "%s\n\n%s\n An error occurred in the <Query> component. Consider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries."
+    ],
+    "failedRequests": []
+  },
+  "finance": {
+    "path": "/finance",
+    "role": "finance_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_users": {
+    "path": "/admin/users",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /admin/users?limit=50&offset=0, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /admin/users?limit=50&offset=0, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /admin/users?limit=50&offset=0, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /admin/users?limit=50&offset=0, returning []. Add one in src/lib/mock.ts"
+    ],
+    "failedRequests": []
+  },
+  "admin_institutions": {
+    "path": "/admin/institutions",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_cycles": {
+    "path": "/admin/cycles",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "admin_config": {
+    "path": "/admin/cycles/c-nfst-26",
+    "role": "scheme_admin",
+    "errors": [],
+    "warnings": [
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts",
+      "[mock] no fixture for GET /cycles/c-nfst-26/configs, returning []. Add one in src/lib/mock.ts"
+    ],
+    "failedRequests": []
+  },
+  "dashboards": {
+    "path": "/dashboards",
+    "role": "leadership",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "grievances": {
+    "path": "/grievances",
+    "role": "scrutiny_officer",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "notifications": {
+    "path": "/notifications",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  },
+  "profile": {
+    "path": "/profile",
+    "role": "applicant",
+    "errors": [],
+    "warnings": [],
+    "failedRequests": []
+  }
+}

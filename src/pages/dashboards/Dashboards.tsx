@@ -67,7 +67,7 @@ function HBar({ data, label, valueLabel }: { data: { name: string; value: number
 function Section({ title, description, children, q }: { title: string; description?: string; children: ReactNode; q: { isPending: boolean; error: unknown } }) {
   return (
     <Card className="min-w-0">
-      <CardHeader>
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>

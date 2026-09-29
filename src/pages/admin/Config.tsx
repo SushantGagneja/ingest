@@ -45,8 +45,8 @@ export default function Config() {
           const current = versions.find((v) => v.version === picked) ?? versions[0]
           return (
             <div className="grid gap-6 lg:grid-cols-[16rem_1fr]">
-              <Card className="self-start">
-                <CardHeader>
+              <Card className="self-start shadow-sm">
+                <CardHeader className="py-4 border-b bg-card/50">
                   <CardTitle>Versions</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -108,8 +108,8 @@ function Version({ cycleId, v, onCreated }: { cycleId: string; v: RuleConfig; on
 
   return (
     <div className="grid min-w-0 gap-6">
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>
             Version {v.version} {v.published_at ? "(published)" : "(draft)"}
           </CardTitle>
@@ -164,8 +164,8 @@ function Version({ cycleId, v, onCreated }: { cycleId: string; v: RuleConfig; on
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
+      <Card className="shadow-sm">
+        <CardHeader className="py-4 border-b bg-card/50">
           <CardTitle>{v.published_at ? "Config JSON (read-only)" : "Edit draft"}</CardTitle>
           <CardDescription>
             {v.published_at
@@ -283,8 +283,8 @@ function NewDraft({
 function ImpactCard({ r, version }: { r: Impact; version: number }) {
   const outcomes = ["pass", "review", "fail"] as const
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Impact of v{version}</CardTitle>
         <CardDescription>
           {r.applications_considered} submitted applications re-evaluated against their pinned version. Nothing is written.

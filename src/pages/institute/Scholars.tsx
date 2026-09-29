@@ -37,8 +37,8 @@ export default function Scholars() {
           return (
             <div className="grid gap-6">
               {bulk && (
-                <Card>
-                  <CardHeader>
+                <Card className="shadow-sm">
+                  <CardHeader className="py-4 border-b bg-card/50">
                     <CardTitle>Quarterly continuation</CardTitle>
                     <CardDescription>
                       Approves continuation for every active scholar in one step. Tick the ones to leave out (on leave, not attending, thesis due).
@@ -54,7 +54,7 @@ export default function Scholars() {
                   </CardContent>
                 </Card>
               )}
-              <Card>
+              <Card className="shadow-sm">
                 <CardContent>
                   {!awards.length ? (
                     <Empty>No scholars yet.</Empty>

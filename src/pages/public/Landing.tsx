@@ -5,7 +5,7 @@ import { CHECKER_DOCUMENTS, checkEligibility, ELIGIBILITY_STATES, type CheckerFa
 import { Button } from "@/components/ui/button"
 
 const EMPTY: CheckerFacts = { state: "", community: "", dob: "", qualification: "", courseLevel: "", income: "" }
-const unknown = import.meta.env.DEV ? "TODO(verify)" : "Not available"
+const unavailable = "To be announced"
 
 function WarliDivider() {
   return (
@@ -25,7 +25,7 @@ export default function Landing() {
 
   return (
     <main id="main" className="min-h-svh bg-background text-foreground">
-      <div className="border-b border-foreground/25 bg-[#eee8da] text-xs">
+      <div className="border-b border-foreground/25 bg-muted text-xs">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 md:px-8">
           <a href="#eligibility" className="underline underline-offset-2">Skip to eligibility checker</a>
           <span>Ministry of Tribal Affairs · Government of India</span>
@@ -52,7 +52,7 @@ export default function Landing() {
           <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">A quick, plain-language check for students considering the National Fellowship for Scheduled Tribes or National Overseas Scholarship.</p>
           <dl className="mt-10 grid max-w-xl grid-cols-2 border-y border-foreground/25 text-sm">
             <div className="border-r border-foreground/25 py-4 pr-4"><dt className="text-muted-foreground">Checker time</dt><dd className="mt-1 font-serif text-2xl">30 sec</dd></div>
-            <div className="py-4 pl-4"><dt className="text-muted-foreground">Closing date</dt><dd className="mt-1 font-medium">{unknown}</dd></div>
+            <div className="py-4 pl-4"><dt className="text-muted-foreground">Closing date</dt><dd className="mt-1 font-medium">{unavailable}</dd></div>
           </dl>
         </div>
         <aside className="self-end border-t-2 border-primary pt-4 text-sm leading-6">
@@ -97,18 +97,18 @@ export default function Landing() {
           </form>
         </div>
 
-        {result && <section aria-live="polite" className="mt-10 grid gap-6 border-l-4 border-primary bg-[#eee8da] p-6 md:grid-cols-[1fr_.8fr]">
+        {result && <section aria-live="polite" className="mt-10 grid gap-6 border-l-4 border-primary bg-muted p-6 md:grid-cols-[1fr_.8fr]">
           <div>
             <p className="text-xs font-semibold tracking-[.18em] uppercase text-muted-foreground">Preliminary result</p>
             <h2 className="mt-2 font-serif text-3xl">{result.title}</h2>
             <p className="mt-3 leading-7 text-muted-foreground">{result.reason}</p>
             {result.kind === "eligible" && <Button asChild className="mt-6"><Link to="/login">Start application</Link></Button>}
           </div>
-          <div className="border-t border-foreground/25 pt-5 md:border-t-0 md:border-l md:pl-6 md:pt-0"><h3 className="font-semibold">Keep these documents ready</h3><ul className="mt-3 grid gap-2 text-sm text-muted-foreground">{CHECKER_DOCUMENTS.map((document) => <li key={document} className="border-b border-foreground/15 pb-2">{document}</li>)}</ul><p className="mt-4 text-xs text-muted-foreground">Closing date: {unknown}</p></div>
+          <div className="border-t border-foreground/25 pt-5 md:border-t-0 md:border-l md:pl-6 md:pt-0"><h3 className="font-semibold">Keep these documents ready</h3><ul className="mt-3 grid gap-2 text-sm text-muted-foreground">{CHECKER_DOCUMENTS.map((document) => <li key={document} className="border-b border-foreground/15 pb-2">{document}</li>)}</ul><p className="mt-4 text-xs text-muted-foreground">Closing date: {unavailable}</p></div>
         </section>}
       </section>
 
-      <footer className="border-t-2 border-primary px-4 py-8 md:px-8"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 text-xs text-muted-foreground"><span>Content under review by Ministry of Tribal Affairs</span><span>Eligibility logic: {unknown} where official rules are unavailable</span></div></footer>
+      <footer className="border-t-2 border-primary px-4 py-8 md:px-8"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 text-xs text-muted-foreground"><span>Content under review by Ministry of Tribal Affairs</span><span>Eligibility is subject to the official scheme notification.</span></div></footer>
     </main>
   )
 }

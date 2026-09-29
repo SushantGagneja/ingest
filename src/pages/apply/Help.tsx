@@ -34,8 +34,8 @@ function HelpBot() {
     onSuccess: (r) => setMsgs((m) => [...m, { from: "bot", text: r.answer }]),
   })
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Ask a question</CardTitle>
         <CardDescription>Answers use the scheme FAQ and your own application and payment status.</CardDescription>
       </CardHeader>
@@ -87,8 +87,8 @@ function NewGrievance() {
     return `${c ? `${c.scheme_code} ${c.cycle}` : "Application"} #${shortId(a.id)}`
   }
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Raise a grievance</CardTitle>
       </CardHeader>
       <CardContent>
@@ -131,8 +131,8 @@ function NewGrievance() {
 function MyGrievances() {
   const q = useQuery({ queryKey: ["grievances"], queryFn: () => api<Grievance[]>("/grievances") })
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>My grievances</CardTitle>
       </CardHeader>
       <CardContent>

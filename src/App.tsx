@@ -109,13 +109,14 @@ function AppSidebar() {
   )
   return (
     <Sidebar>
-      <SidebarHeader className="px-4 py-4">
+      <SidebarHeader className="px-4 py-4 flex flex-row items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-semibold">
           <span className="grid size-8 place-items-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground" aria-hidden>
             <FileSearch className="size-4" />
           </span>
           Adi Scholar
         </Link>
+        {MOCK && <span className="rounded bg-accent/15 px-2 py-0.5 text-[10px] font-bold text-accent">Demo data</span>}
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -149,14 +150,20 @@ function Shell() {
   const me = useMe()
   return (
     <SidebarProvider>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-3 focus:bg-background focus:text-foreground focus:ring-2 focus:ring-primary rounded-md m-2">
+        Skip to main content
+      </a>
       {MOCK && <MockRoleSwitcher />}
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-12 items-center gap-2 border-b px-4 md:hidden">
-          <SidebarTrigger aria-label="Open menu" />
-          <span className="font-semibold">Adi Scholar</span>
+        <header className="flex h-12 items-center justify-between border-b px-4 md:hidden">
+          <div className="flex items-center gap-2">
+            <SidebarTrigger aria-label="Open menu" />
+            <span className="font-semibold">Adi Scholar</span>
+          </div>
+          {MOCK && <span className="rounded bg-accent/15 px-2 py-0.5 text-[10px] font-bold text-accent">Demo data</span>}
         </header>
-        <main id="main" className="mx-auto w-full max-w-6xl px-4 py-6 md:px-8 md:py-8">
+        <main id="main" className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-6 md:px-8 md:py-8">
           <Suspense fallback={<Loading />}>
             <Routes>
               {NAV.filter((n) => n.roles.includes(me.role)).map((n) => (

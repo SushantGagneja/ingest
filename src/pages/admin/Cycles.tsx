@@ -62,7 +62,7 @@ export default function Cycles() {
         description="Submissions are accepted only while a cycle is open. Open a cycle to edit its versioned rule config."
         actions={<Button onClick={() => setCreating(true)}>New cycle</Button>}
       />
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {(rows) =>
@@ -191,7 +191,7 @@ function RateTable() {
   )
   return (
     <Card className="mt-6">
-      <CardHeader>
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle>Rate tables</CardTitle>
         <CardDescription>
           Add a stipend/HRA/contingency revision. Payments use the latest table effective on or before each period.

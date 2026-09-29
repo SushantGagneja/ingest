@@ -103,15 +103,22 @@ export function Query<T>({ q, children }: { q: { data?: T; error: unknown; isPen
   return <>{children(q.data as T)}</>
 }
 
-/** Label + control, with an optional hint wired up via aria-describedby. */
-export function Field({ id, label, hint, children, className }: { id: string; label: ReactNode; hint?: ReactNode; children: ReactNode; className?: string }) {
+/** Label + control, with optional hint and error wired up via aria-describedby. */
+export function Field({ id, label, hint, error, children, className }: { id: string; label: ReactNode; hint?: ReactNode; error?: ReactNode; children: ReactNode; className?: string }) {
+  const hintId = hint ? `${id}-hint` : undefined
+  const errorId = error ? `${id}-error` : undefined
   return (
     <div className={cn("grid gap-1.5", className)}>
       <Label htmlFor={id}>{label}</Label>
       {children}
       {hint && (
-        <p id={`${id}-hint`} className="text-xs text-muted-foreground">
+        <p id={hintId} className="text-xs text-muted-foreground">
           {hint}
+        </p>
+      )}
+      {error && (
+        <p id={errorId} className="text-xs font-medium text-destructive">
+          {error}
         </p>
       )}
     </div>

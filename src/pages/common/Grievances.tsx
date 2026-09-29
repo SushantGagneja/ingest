@@ -48,8 +48,8 @@ function Ticket({ g }: { g: Grievance }) {
   const aiDraft = !g.resolution && !!g.suggested_reply && reply === g.suggested_reply
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
         <CardTitle className="flex flex-wrap items-center gap-2">
           {g.subject}
           <StatusBadge status={g.status} />

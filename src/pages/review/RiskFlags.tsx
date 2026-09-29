@@ -30,7 +30,7 @@ export default function RiskFlags() {
           <TabsTrigger value="confirmed">Confirmed</TabsTrigger>
         </TabsList>
       </Tabs>
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {(flags) =>

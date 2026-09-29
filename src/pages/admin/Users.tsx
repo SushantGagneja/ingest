@@ -58,7 +58,7 @@ export default function Users() {
           <Input id="user-search" placeholder="Name or email" value={search} onChange={(e) => setSearch(e.target.value)} />
         </Field>
       </div>
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {() =>

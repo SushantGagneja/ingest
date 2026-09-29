@@ -44,7 +44,7 @@ export default function Requests() {
           <TabsTrigger value="rejected">Rejected</TabsTrigger>
         </TabsList>
       </Tabs>
-      <Card>
+      <Card className="shadow-sm">
         <CardContent>
           <Query q={q}>
             {(rows) =>

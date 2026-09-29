@@ -52,9 +52,9 @@ function Review({ app }: { app: AppDetail }) {
       <DocVerify app={app} canAct={canAct} />
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Eligibility</CardTitle>
+        <Card className="shadow-sm">
+          <CardHeader className="py-4 border-b bg-card/50">
+            <CardTitle className="text-base font-semibold">Eligibility</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3">
             <RuleResults results={app.rule_results} />
@@ -68,9 +68,9 @@ function Review({ app }: { app: AppDetail }) {
           </CardContent>
         </Card>
         <RiskFlags appId={app.id} canAct={canAct} />
-        <Card>
-          <CardHeader>
-            <CardTitle>Applicant</CardTitle>
+        <Card className="shadow-sm">
+          <CardHeader className="py-4 border-b bg-card/50">
+            <CardTitle className="text-base font-semibold">Applicant</CardTitle>
           </CardHeader>
           <CardContent>
             <Facts
@@ -87,9 +87,9 @@ function Review({ app }: { app: AppDetail }) {
             />
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Timeline</CardTitle>
+        <Card className="shadow-sm">
+          <CardHeader className="py-4 border-b bg-card/50">
+            <CardTitle className="text-base font-semibold">Timeline</CardTitle>
           </CardHeader>
           <CardContent>
             {app.deficiency && (
@@ -119,9 +119,9 @@ function DocVerify({ app, canAct }: { app: AppDetail; canAct: boolean }) {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Documents</CardTitle>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
+        <CardTitle className="text-base font-semibold">Documents</CardTitle>
       </CardHeader>
       <CardContent>
         {!app.documents.length ? (
@@ -457,9 +457,9 @@ function RiskFlags({ appId, canAct }: { appId: string; canAct: boolean }) {
     invalidate: [["risk-flags"], ["application", appId]],
   })
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Risk flags</CardTitle>
+    <Card className="shadow-sm">
+      <CardHeader className="py-4 border-b bg-card/50">
+        <CardTitle className="text-base font-semibold">Risk flags</CardTitle>
       </CardHeader>
       <CardContent>
         <Query q={q}>
