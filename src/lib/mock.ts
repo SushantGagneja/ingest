@@ -262,15 +262,17 @@ export async function mockApi(path: string, opts: Opts = {}): Promise<any> {
   // Simulated network latency (150ms to 350ms)
   await wait(150 + Math.random() * 200)
 
-  if (isSimulatedErrorEnabled()) {
-    throw new Error("Simulated failure path enabled for demo error testing.")
-  }
-
   const url = new URL(path, "http://mock")
   const p = url.pathname
   const method = opts.method ?? (opts.body === undefined ? "GET" : "POST")
   let x: RegExpMatchArray | null
   const m = (re: RegExp) => p.match(re)
+
+  // Keep the shell session available when demonstrating a failed data request.
+  // Otherwise the persistent error toggle prevents the role/reset controls from rendering.
+  if (isSimulatedErrorEnabled() && p !== "/me") {
+    throw new Error("Simulated failure path enabled for demo error testing.")
+  }
 
   if (p === "/me") return me()
   if (p === "/me/notifications") return notifications
