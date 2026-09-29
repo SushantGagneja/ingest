@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { api, ApiError, supabase } from "@/lib/api"
+import { MOCK } from "@/lib/mock"
+import { MockRoleSwitcher } from "@/components/MockRoleSwitcher"
 import { ROLE_LABEL, type Role } from "@/lib/format"
 import type { Notification, Profile } from "@/lib/types"
 import Login from "@/pages/common/Login"
@@ -41,6 +43,7 @@ const P = {
   grievances: page(() => import("@/pages/common/Grievances")),
   notifications: page(() => import("@/pages/common/Notifications")),
   profile: page(() => import("@/pages/common/Profile")),
+  landing: page(() => import("@/pages/public/Landing")),
 }
 
 const OFFICERS: Role[] = ["institute_officer", "state_officer", "scrutiny_officer", "mission_officer", "finance_officer", "scheme_admin"]
@@ -146,6 +149,7 @@ function Shell() {
   const me = useMe()
   return (
     <SidebarProvider>
+      {MOCK && <MockRoleSwitcher />}
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-12 items-center gap-2 border-b px-4 md:hidden">
@@ -191,13 +195,25 @@ function Authed({ session }: { session: Session }) {
   )
 }
 
+const MOCK_SESSION = { user: { id: "mock-user" } } as Session
+
+function Unauthed() {
+  return (
+    <Routes>
+      <Route path="/" element={<P.landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  )
+}
+
 export default function App() {
-  const [session, setSession] = useState<Session | null | undefined>(undefined)
+  const [session, setSession] = useState<Session | null | undefined>(MOCK ? MOCK_SESSION : undefined)
   useEffect(() => {
+    if (MOCK) return
     supabase.auth.getSession().then(({ data }) => setSession(data.session))
     const { data } = supabase.auth.onAuthStateChange((_e, s) => setSession(s))
     return () => data.subscription.unsubscribe()
   }, [])
-  if (session === undefined) return <Loading />
-  return <BrowserRouter>{session ? <Authed session={session} /> : <Login />}</BrowserRouter>
+  return <BrowserRouter>{session === undefined ? <Loading /> : session ? <Authed session={session} /> : <Suspense fallback={<Loading />}><Unauthed /></Suspense>}</BrowserRouter>
 }

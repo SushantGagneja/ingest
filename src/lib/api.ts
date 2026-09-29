@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 import { QueryClient } from "@tanstack/react-query"
+import { MOCK, mockApi } from "./mock"
 
 export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)
 
@@ -33,6 +34,7 @@ async function request(path: string, init: RequestInit = {}): Promise<Response> 
 
 /** JSON in, JSON out. `body` FormData is sent as multipart. */
 export async function api<T = any>(path: string, opts: { method?: string; body?: unknown } = {}): Promise<T> {
+  if (MOCK) return mockApi(path, opts)
   const isForm = opts.body instanceof FormData
   const res = await request(path, {
     method: opts.method ?? (opts.body === undefined ? "GET" : "POST"),
@@ -44,6 +46,7 @@ export async function api<T = any>(path: string, opts: { method?: string; body?:
 
 /** Authenticated file download (CSV export): an <a href> can't carry the bearer token. */
 export async function download(path: string, filename: string) {
+  if (MOCK) return console.info("[mock] download skipped", path, filename)
   const blob = await (await request(path)).blob()
   const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: filename })
   a.click()
