@@ -1,117 +1,75 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Palette + contrast rules: fe/PLAN.md "Theme". Light only. */
+/* Source of truth: docs/design-tokens.md. Add licensed Noto subsets under
+   public/fonts before enabling local @font-face declarations. */
 :root {
-  --radius: 0.625rem;
-  --background: #fdfcfc;
-  --foreground: #1c1c1b;
-  --card: #1c1c1b;
-  --card-foreground: #fdfcfc;
-  --popover: #1c1c1b;
-  --popover-foreground: #fdfcfc;
-  --primary: #c3adf9;
-  --primary-foreground: #1c1c1b;
-  --accent: #c3adf9;
-  --accent-foreground: #1c1c1b;
-  --ring: #c3adf9;
-  --sidebar: #2b2b2a;
-  --sidebar-foreground: #fdfcfc;
-  --sidebar-primary: #c3adf9;
-  --sidebar-primary-foreground: #1c1c1b;
-  --sidebar-accent: #3a3a39;
-  --sidebar-accent-foreground: #fdfcfc;
-  --sidebar-border: #3a3a39;
-  --sidebar-ring: #c3adf9;
-  --muted: #f1efef;
-  --muted-foreground: #5c5c5a;
-  --secondary: #f1efef;
-  --secondary-foreground: #1c1c1b;
-  --border: #e6e3e3;
-  --input: #e6e3e3;
-  --destructive: #dc2626;
+  /* Vended from UX4G 3.0’s token stylesheet. The full UX4G bundle embeds its
+     complete component catalogue and fonts (over 4 MB gzip), so this portal
+     uses the documented token-vendoring path to preserve mobile performance. */
+  --ux4g-color-blue-50: #f5faff; --ux4g-color-blue-100: #e7f2ff; --ux4g-color-blue-200: #d0e4ff;
+  --ux4g-color-blue-300: #a1c9ff; --ux4g-color-blue-400: #76acff; --ux4g-color-blue-500: #4e8ff8;
+  --ux4g-color-blue-600: #3271ea; --ux4g-color-blue-700: #1157ce; --ux4g-color-blue-800: #04409f;
+  --ux4g-color-blue-900: #012c6f; --ux4g-color-blue-950: #001944;
+  --ux4g-color-secondary-50: #fff5ea; --ux4g-color-secondary-600: #a46800;
+  --ux4g-color-neutral-0: #fff; --ux4g-color-neutral-100: #f5f5f5; --ux4g-color-neutral-300: #d9d9d9;
+  --ux4g-color-neutral-400: #a1a1a1; --ux4g-color-neutral-600: #525252; --ux4g-color-neutral-700: #404040;
+  --ux4g-color-neutral-800: #262626; --ux4g-color-neutral-900: #171717;
+  --ux4g-color-red-50: #fff8f8; --ux4g-color-red-700: #b3251e; --ux4g-color-red-800: #8a1a16;
+  --ux4g-color-green-50: #f2fcef; --ux4g-color-green-600: #128937; --ux4g-color-green-800: #00522c;
+  --ux4g-color-gold-50: #fffbe6; --ux4g-color-gold-700: #d98a00; --ux4g-color-gold-900: #8c4d00;
+  --ux4g-font-family-base: "Noto Sans", system-ui, sans-serif; --ux4g-font-size-16: 1rem; --ux4g-line-height-24: 1.5rem;
+  --ux4g-space-2: .25rem; --ux4g-space-4: .5rem; --ux4g-space-6: 1rem; --ux4g-space-8: 1.5rem;
+  --ux4g-radius-0: 0; --ux4g-radius-1: .125rem; --ux4g-radius-2: .25rem; --ux4g-radius-3: .5rem;
+  --ux4g-shadow-l0: none; --ux4g-shadow-l1: 0 1px 2px rgb(0 0 0 / 4%); --ux4g-shadow-l2: 0 2px 4px rgb(0 0 0 / 8%);
 
-  /* Status fills: always carry their own dark text, so they read on light bg and dark cards alike. Never the accent. */
-  --pass: #bbf7d0;
-  --pass-foreground: #14532d;
-  --review: #fde68a;
-  --review-foreground: #713f12;
-  --fail: #fecaca;
-  --fail-foreground: #7f1d1d;
-  --neutral: #e6e3e3;
-  --neutral-foreground: #1c1c1b;
-
-  --chart-1: #c3adf9;
-  --chart-2: #7dd3fc;
-  --chart-3: #86efac;
-  --chart-4: #fcd34d;
-  --chart-5: #fca5a5;
-}
-
-/* Dark cards: inputs, tables, secondary text get their own muted tones inside them. */
-[data-slot="card"] {
-  --foreground: #fdfcfc;
-  --background: #1c1c1b;
-  --muted: #2b2b2a;
-  --muted-foreground: #a8a8a5;
-  --secondary: #2b2b2a;
-  --secondary-foreground: #fdfcfc;
-  --border: #3a3a39;
-  --input: #3a3a39;
-  --destructive: #f87171;
+  /* UX4G’s authorised Ministry-blue theme. Preserve UX4G semantic aliases so
+     our Tailwind primitives resolve to the same scale. */
+  --ux4g-color-primary-50: var(--ux4g-color-blue-50);
+  --ux4g-color-primary-100: var(--ux4g-color-blue-100);
+  --ux4g-color-primary-200: var(--ux4g-color-blue-200);
+  --ux4g-color-primary-300: var(--ux4g-color-blue-300);
+  --ux4g-color-primary-400: var(--ux4g-color-blue-400);
+  --ux4g-color-primary-500: var(--ux4g-color-blue-500);
+  --ux4g-color-primary-600: var(--ux4g-color-blue-600);
+  --ux4g-color-primary-700: var(--ux4g-color-blue-700);
+  --ux4g-color-primary-800: var(--ux4g-color-blue-800);
+  --ux4g-color-primary-900: var(--ux4g-color-blue-900);
+  --ux4g-color-primary-950: var(--ux4g-color-blue-950);
+  --radius: 0.25rem;
+  --background: var(--ux4g-color-neutral-0); --foreground: var(--ux4g-color-neutral-900);
+  --card: var(--ux4g-color-neutral-0); --card-foreground: var(--ux4g-color-neutral-900);
+  --popover: var(--ux4g-color-neutral-0); --popover-foreground: var(--ux4g-color-neutral-900);
+  --primary: var(--ux4g-color-primary-800); --primary-foreground: var(--ux4g-color-neutral-0);
+  --accent: var(--ux4g-color-secondary-600); --accent-foreground: var(--ux4g-color-neutral-900);
+  --ring: var(--ux4g-color-primary-700);
+  --sidebar: var(--ux4g-color-neutral-0); --sidebar-foreground: var(--ux4g-color-neutral-900);
+  --sidebar-primary: var(--ux4g-color-primary-800); --sidebar-primary-foreground: var(--ux4g-color-neutral-0);
+  --sidebar-accent: var(--ux4g-color-primary-50); --sidebar-accent-foreground: var(--ux4g-color-primary-900);
+  --sidebar-border: var(--ux4g-color-neutral-300); --sidebar-ring: var(--ux4g-color-primary-700);
+  --muted: var(--ux4g-color-neutral-100); --muted-foreground: var(--ux4g-color-neutral-700);
+  --secondary: var(--ux4g-color-neutral-100); --secondary-foreground: var(--ux4g-color-neutral-900);
+  --border: var(--ux4g-color-neutral-300); --input: var(--ux4g-color-neutral-600); --destructive: var(--ux4g-color-red-800);
+  --pass: var(--ux4g-color-green-50); --pass-foreground: var(--ux4g-color-green-800); --pass-border: var(--ux4g-color-green-600);
+  --review: var(--ux4g-color-gold-50); --review-foreground: var(--ux4g-color-gold-900); --review-border: var(--ux4g-color-gold-700);
+  --fail: var(--ux4g-color-red-50); --fail-foreground: var(--ux4g-color-red-800); --fail-border: var(--ux4g-color-red-700);
+  --neutral: var(--ux4g-color-neutral-100); --neutral-foreground: var(--ux4g-color-neutral-800); --neutral-border: var(--ux4g-color-neutral-400);
+  --chart-1: var(--ux4g-color-primary-800); --chart-2: var(--ux4g-color-neutral-700); --chart-3: var(--ux4g-color-neutral-500); --chart-4: var(--ux4g-color-secondary-600); --chart-5: var(--ux4g-color-primary-600);
 }
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-pass: var(--pass);
-  --color-pass-foreground: var(--pass-foreground);
-  --color-review: var(--review);
-  --color-review-foreground: var(--review-foreground);
-  --color-fail: var(--fail);
-  --color-fail-foreground: var(--fail-foreground);
-  --color-neutral: var(--neutral);
-  --color-neutral-foreground: var(--neutral-foreground);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --radius-sm: 2px; --radius-md: var(--radius); --radius-lg: 4px; --radius-xl: 4px;
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar); --color-sidebar-foreground: var(--sidebar-foreground); --color-sidebar-primary: var(--sidebar-primary); --color-sidebar-primary-foreground: var(--sidebar-primary-foreground); --color-sidebar-accent: var(--sidebar-accent); --color-sidebar-accent-foreground: var(--sidebar-accent-foreground); --color-sidebar-border: var(--sidebar-border); --color-sidebar-ring: var(--sidebar-ring);
+  --color-pass: var(--pass); --color-pass-foreground: var(--pass-foreground); --color-review: var(--review); --color-review-foreground: var(--review-foreground); --color-fail: var(--fail); --color-fail-foreground: var(--fail-foreground); --color-neutral: var(--neutral); --color-neutral-foreground: var(--neutral-foreground);
+  --color-chart-1: var(--chart-1); --color-chart-2: var(--chart-2); --color-chart-3: var(--chart-3); --color-chart-4: var(--chart-4); --color-chart-5: var(--chart-5);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground antialiased;
-  }
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground antialiased; font-family: var(--ux4g-font-family-base); font-size: var(--ux4g-font-size-16); line-height: var(--ux4g-line-height-24); }
+  button, input, select, textarea { font: inherit; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }

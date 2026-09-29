@@ -21,6 +21,10 @@ import "ux4g-web-components/design-system"
 
 Then use native JSX with UX4G classes, for example `ux4g-btn ux4g-btn-primary ux4g-btn-md`. The package is a single core web package, not separate React component imports. Do not load the legacy UX4G 2.0 CDN alongside it. [UX4G developer guide](https://www.ux4g.gov.in/get-started/for-developers)
 
+### Project decision: vendor tokens
+
+The published 3.0.0 stylesheet embeds fonts and the complete component catalogue. A production build with the whole stylesheet was 8.45 MB CSS / 4.05 MB gzip, which is incompatible with this portal's constrained-network performance target. This project therefore follows the brief's permitted token-vendoring path: the verified UX4G blue, neutral, status, type, spacing, radius, and elevation values used by the application are kept in `src/index.css`. Radix retains interaction behavior and the local primitives follow UX4G's documented accessibility/convention guidance. The full package is deliberately not a production dependency.
+
 ## Foundations and tokens
 
 UX4G 3.0 publishes its tokens as CSS custom properties in `styles.css`; that package stylesheet is the authoritative full value table. The public documentation verifies these token families and examples:

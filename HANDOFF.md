@@ -7,17 +7,20 @@
 - No files under `src/` were edited for this step.
 - `docs/ux4g-notes.md` records package installation, verified token families, components, templates, logo constraints, widget embed, and decisions still needing Ministry/security input.
 
-## Next: Step 2 — foundation
+## Completed: Step 2 — UX4G Ministry-blue foundation
 
-Step 2 is paused at a documented design conflict. `ux4g-web-components@3.0.0` is installed but not imported or committed. Its official default primary scale is purple: `--ux4g-color-primary-600: #4a2bc2`, with a lavender range. The brief prohibits a lavender accent while also requiring official UX4G tokens and says not to invent a style.
+- Vended verified UX4G 3.0 blue, neutral, semantic-status, typography, spacing, radius, and elevation tokens in `src/index.css`.
+- Mapped Tailwind/shadcn aliases to the Ministry-blue token scale; no lavender or dark-card inversion remains.
+- Kept Radix behavior and updated existing card, button, input, textarea, select, table, dialog, alert, badge, and status-badge primitives to use the foundation.
+- Added a neutral non-emblem favicon and metadata link in `index.html`.
+- Tested the UX4G package, then deliberately removed it: its full stylesheet built to 8.45 MB / 4.05 MB gzip due to embedded fonts and full-catalogue styles. The vended-token build is 80.96 KB / 14.06 KB gzip.
 
-Resume only after a decision:
+## Next: Step 3 — government shell
 
-1. Use stock UX4G tokens (accept its official purple default), or
-2. use UX4G component/layout/accessibility conventions with an authorised Ministry blue theme supplied by the Ministry/UX4G Theme Craft, or
-3. remove the package and retain only the researched conventions.
-
-After a choice, map tokens into `src/index.css`, update compatible UI primitives while keeping Radix behavior for dialog/select/sheet/dropdown/tooltip, add favicon, then run `npm run lint` and `npm run build`.
+1. Add `components/layout/` with UtilityBar, neutral Emblem placeholder, GovHeader, MainNav, Breadcrumbs, and GovFooter.
+2. Rework authenticated Shell only: retain NAV role guards/routes, add optional grouping and `#main` skip target.
+3. Do not use the State Emblem unless an authorised source asset is supplied.
+4. Run `npm run lint` and `npm run build`; capture 360px and 1280px screenshots if mock mode can be run.
 
 ## Constraints and open questions
 

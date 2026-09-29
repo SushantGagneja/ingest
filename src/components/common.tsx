@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react"
 import { useMutation, useQuery, type QueryKey } from "@tanstack/react-query"
-import { AlertCircle, Loader2 } from "lucide-react"
+import { AlertCircle, CheckCircle2, Circle, Clock3, Loader2, XCircle } from "lucide-react"
 import { toast } from "sonner"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -58,16 +58,19 @@ export function PageHeader({ title, description, actions }: { title: string; des
 }
 
 const TONE_CLASS: Record<Tone, string> = {
-  pass: "bg-pass text-pass-foreground",
-  review: "bg-review text-review-foreground",
-  fail: "bg-fail text-fail-foreground",
-  neutral: "bg-neutral text-neutral-foreground",
-  accent: "bg-primary text-primary-foreground",
+  pass: "border-[color:var(--pass-border)] bg-pass text-pass-foreground",
+  review: "border-[color:var(--review-border)] bg-review text-review-foreground",
+  fail: "border-[color:var(--fail-border)] bg-fail text-fail-foreground",
+  neutral: "border-[color:var(--neutral-border)] bg-neutral text-neutral-foreground",
+  accent: "border-primary bg-primary text-primary-foreground",
 }
 
 export function StatusBadge({ status, label, tone }: { status: string; label?: string; tone?: Tone }) {
   return (
-    <Badge className={cn("border-transparent font-medium", TONE_CLASS[tone ?? toneOf(status)])}>{label ?? humanize(status)}</Badge>
+    <Badge className={cn("rounded-sm font-medium", TONE_CLASS[tone ?? toneOf(status)])}>
+      {(tone ?? toneOf(status)) === "pass" ? <CheckCircle2 aria-hidden /> : (tone ?? toneOf(status)) === "fail" ? <XCircle aria-hidden /> : (tone ?? toneOf(status)) === "review" ? <Clock3 aria-hidden /> : <Circle aria-hidden />}
+      {label ?? humanize(status)}
+    </Badge>
   )
 }
 
